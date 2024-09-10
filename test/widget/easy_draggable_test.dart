@@ -4,13 +4,17 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('EasyDraggableWidget', () {
-    testWidgets('EasyDraggableWidget renders correctly', (WidgetTester tester) async {
+    testWidgets('EasyDraggableWidget renders correctly',
+        (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: EasyDraggableWidget(
             padding: EdgeInsets.zero,
-            floatingBuilder:
-                (BuildContext context, BoxConstraints constraints) {
+            floatingBuilder: (
+              BuildContext context,
+              BoxConstraints constraints,
+              currentOffset,
+            ) {
               return Container(
                 width: 100,
                 height: 100,
@@ -27,14 +31,14 @@ void main() {
 
     test('should create a widget', () {
       final widget = EasyDraggableWidget(
-        floatingBuilder: (context, _) => Container(),
+        floatingBuilder: (context, _, offset) => Container(),
       );
       expect(widget, isA<EasyDraggableWidget>());
     });
 
     test('should set the speed property', () {
       final widget = EasyDraggableWidget(
-        floatingBuilder: (context, _) => Container(),
+        floatingBuilder: (context, _, offset) => Container(),
         speed: 100.0,
       );
       expect(widget.speed, 100.0);
@@ -42,7 +46,7 @@ void main() {
 
     test('should set the hasBounce property', () {
       final widget = EasyDraggableWidget(
-        floatingBuilder: (context, _) => Container(),
+        floatingBuilder: (context, _, offset) => Container(),
         hasBounce: true,
       );
       expect(widget.hasBounce, true);
@@ -50,7 +54,7 @@ void main() {
 
     test('should set the autoAlign property', () {
       final widget = EasyDraggableWidget(
-        floatingBuilder: (context, _) => Container(),
+        floatingBuilder: (context, _, offset) => Container(),
         autoAlign: true,
       );
       expect(widget.autoAlign, true);

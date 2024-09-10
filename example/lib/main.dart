@@ -36,30 +36,30 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(widget.title),
-        ),
-        body: EasyDraggableWidget(
-          padding: const EdgeInsets.all(16),
-          floatingBuilder: (context, constraints) {
-            return Container(
-              width: 100,
-              height: 100,
-              color: Colors.blue,
-              child: const Center(
-                child: Text(
-                  'Drag me!',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+      body: EasyDraggableWidget(
+        padding: const EdgeInsets.all(16),
+        floatingBuilder: (context, constraints, offset) {
+          return Container(
+            width: 150,
+            height: 200,
+            color: Colors.blue,
+            child: const Center(
+              child: Text(
+                'Drag me!',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
